@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: spring-boot-rabbitmq
+  profiles:
+    active: dev
+
+  http:
+    encoding:
+      enabled: true
+      charset: UTF-8
+      force: true
+  jackson:
+    date-format: YYYY-MM-dd
+    joda-date-time-format: YYYY-MM-dd HH:mm:ss
+
+management:
+  health:
+    db:
+      enabled: true
+    rabbit:
+      enabled: true
+    diskspace:
+      enabled: true
+  endpoint:
+    env:
+      enabled: true
+  trace:
+    http:
+      enabled: true
+info:
+  application:
+       name: spring-boot-rabbitmq
+       version: 1.0.0
+       description: rabbitmq\u5165\u95E8\u5230\u8FDB\u9636
+  teams:
+     team:
+       name: develop
+       developers:
+         - xwolf
+         - \u738B\u8001\u677F
