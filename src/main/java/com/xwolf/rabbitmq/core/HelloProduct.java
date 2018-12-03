@@ -20,12 +20,18 @@ public class HelloProduct {
     //RabbitMQ 服务端默认端口号为 5672
     private static final int PORT = 5672;
 
+    private static ConnectionFactory factory;
+
+    static{
+        factory = new ConnectionFactory() ;
+        factory.setHost(HOST);
+        factory.setPort(PORT) ;
+        factory.setUsername(USERNAME);
+        factory.setPassword(PASSWORD);
+    }
+
     public static void main(String[] args){
-         ConnectionFactory factory = new ConnectionFactory() ;
-         factory.setHost(HOST);
-         factory.setPort(PORT) ;
-         factory.setUsername(USERNAME);
-         factory.setPassword(PASSWORD);
+
          try( //创建连接
              Connection connection = factory.newConnection();
              //创建信道

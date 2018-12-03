@@ -38,9 +38,11 @@ public class HelloConsumer {
                      public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                      String message = new String(body);
                      System.out.println("receive message : "+ message);
-                     channel.basicAck(envelope.getDeliveryTag(),true);
+                     //消费者确认消费消息,确认成功后会自动删除该消息
+                     channel.basicAck(envelope.getDeliveryTag(),false);
                  }
                  };
+            // 消费队列
             channel.basicConsume(QUEUE_NAME,consumer);
             //休眠5s,等待回调任务执行完成
             TimeUnit.SECONDS.sleep(5);
