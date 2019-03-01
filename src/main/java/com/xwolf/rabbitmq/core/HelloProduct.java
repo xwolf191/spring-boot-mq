@@ -4,6 +4,9 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.MessageProperties;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.stream.IntStream;
 
 /**
  * 简单的生产者
@@ -43,10 +46,17 @@ public class HelloProduct {
              //将交换器与队列通过路由键绑定
              channel.queueBind(QUEUE_NAME , EXCHANGE_NAME , ROUTING_KEY);
              //发送一条持久化的消息: hello world !
-             String message = "Hello World !";
-             channel.basicPublish( EXCHANGE_NAME,ROUTING_KEY ,
-                     MessageProperties.PERSISTENT_TEXT_PLAIN,
-                     message.getBytes()) ;
+             IntStream.range(0,1000).forEach(x -> {
+                 String message = String.format("生产者发送消息=%s,当前发送次数=%d,发送时间=%d","Hello RabbitMQ.",x,System.currentTimeMillis());
+                 try {
+                     channel.basicPublish( EXCHANGE_NAME,ROUTING_KEY ,
+                         MessageProperties.PERSISTENT_TEXT_PLAIN,
+                         message.getBytes()) ;
+                 } catch (IOException e) {
+                     e.printStackTrace();
+                 }
+             });
+
          }catch (Exception e){
              e.printStackTrace();
          }

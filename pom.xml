@@ -53,6 +53,18 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.gjt.jclasslib</groupId>
+            <artifactId>jclasslib-browser</artifactId>
+            <version>5.1</version>
+        </dependency>
+
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>fastjson</artifactId>
+        <version>1.2.56</version>
+      </dependency>
     </dependencies>
 
     <build>
