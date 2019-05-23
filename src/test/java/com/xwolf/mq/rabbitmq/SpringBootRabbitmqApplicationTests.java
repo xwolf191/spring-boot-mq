@@ -1,6 +1,6 @@
-package com.xwolf.rabbitmq;
+package com.xwolf.mq.rabbitmq;
 
-import com.xwolf.rabbitmq.springboot.Send;
+import com.xwolf.mq.rabbitmq.springboot.Send;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

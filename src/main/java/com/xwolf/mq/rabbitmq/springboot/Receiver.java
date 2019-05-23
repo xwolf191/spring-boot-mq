@@ -1,4 +1,4 @@
-package com.xwolf.rabbitmq.springboot;
+package com.xwolf.mq.rabbitmq.springboot;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;

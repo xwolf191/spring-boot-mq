@@ -1,11 +1,10 @@
-package com.xwolf.rabbitmq.core;
+package com.xwolf.mq.rabbitmq.core;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.MessageProperties;
 import java.io.IOException;
-import java.time.LocalDateTime;
 import java.util.stream.IntStream;
 
 /**
