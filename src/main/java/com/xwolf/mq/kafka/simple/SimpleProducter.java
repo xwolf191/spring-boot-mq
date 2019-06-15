@@ -1,6 +1,5 @@
 package com.xwolf.mq.kafka.simple;
 
-import com.alibaba.fastjson.JSON;
 import java.util.Properties;
 import java.util.concurrent.ExecutionException;
 import org.apache.kafka.clients.producer.KafkaProducer;
@@ -29,7 +28,6 @@ public class SimpleProducter {
     //指定分区(从0开始),key,value
     ProducerRecord<String,String> record =
         new ProducerRecord(TOPIC_NAME,0,System.currentTimeMillis(),key,value);
-
     try {
       RecordMetadata recordMetadata = producer.send(record).get();
       System.out.println(recordMetadata.toString());
